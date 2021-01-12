@@ -1,41 +1,44 @@
 # pinalt(ium)
 
-Скрипт для парсинга файлов с описанием пинов микросхемы, экспортируемых из Altium.
+Script for parsing files with pins description, exported from Altium
 
-### Требования
+### Requirements
 
 python3.xx
 
-> Тестировалось на версиях 3.8, 3.9
+> Tested with 3.8, 3.9 (Win10, Linux, MacOS)
 
-### Входной файл формата .csv
-- Открыть в Altium schematic проекта (файл PcbPrj)
-- ПКМ на требуемую микросхему
+### Input .csv file
+- Open Altium schematic (.PcbPrj file)
+- Right click to intersted IC
 - Pin mapping...
-- Открывается вложенное окно с описанием пинов
-- В нижней правой части кнопка Export...
-- Сохранить файл
+- Window with pins description will open
+- Press "Export..." in the right down part of window
+- Save file
 
-### Запуск
+### Running
 
 Linux/MacOS
 
-`python pinalt.py <csv файл> <список игнорируемых имен через пробел>`
+`python pinalt.py <csv file> <ignoring nets, separated by space>`
 
 Windows
 
-`python.exe pinalt.py <csv файл> <список игнорируемых имен через пробел>`
+`python.exe pinalt.py <csv file> <ignoring nets, separated by space>`
 
-> Пример:
+> Example:
 >
-> `pinalt.py example.csv GND +1,8V +1,2V +3,3V`
+> `python pinalt.py example.csv GND +1,8V +1,2V +3,3V`
 
-### Результат работы:
+### Results:
 
 В директории со скриптом создаются (перезаписываются без подтверждения) три файла:
+There are three files:
 
-<имя csv файла>net.txt - файл с отсортированным списком имен линий, подключенных к микросхеме
+<csv filename>net.txt - all nets list, sorted
 
-<имя csv файла>.qsf - файл для Intel FPGA тулов с описанием пинов
+<csv filename>.qsf - Intel Quartus pin description file
 
-<имя csv файла>.xdc - файл для Xilinx FPGA тулов с описанием пинов
+<csv filename>.xdc - Xilinx Vivado pin description file
+
+! All those files will rewrited witohut any confirmations
