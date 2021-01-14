@@ -32,7 +32,6 @@ Windows
 
 ### Results:
 
-В директории со скриптом создаются (перезаписываются без подтверждения) три файла:
 There are three files:
 
 <csv filename>net.txt - all nets list, sorted
@@ -41,4 +40,4 @@ There are three files:
 
 <csv filename>.xdc - Xilinx Vivado pin description file
 
-! All those files will rewrited witohut any confirmations
+! All those files will rewrited without any confirmations
